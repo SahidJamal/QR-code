@@ -1,24 +1,24 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import QRCode from "react-qr-code";
+import html2canvas from 'html2canvas';
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
-  const qrCodeRef = useRef(null);
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  // const handleDownload = () => {
-  //   const canvas = qrCodeRef.current.getElementsByTagName("canvas")[0];
-  //   const url = canvas.toDataURL("image/png");
-  //   const downloadLink = document.createElement("a");
-  //   downloadLink.href = url;
-  //   downloadLink.download = "qrcode.png";
-  //   document.body.appendChild(downloadLink);
-  //   downloadLink.click();
-  //   document.body.removeChild(downloadLink);
-  // };
+  const handleDownload = () => {
+    const element = document.getElementById("qrcode-container");
+
+    html2canvas(element).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'qrcode.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+  };
 
   return (
     <div style={{ padding: "30px", display:"grid", justifyContent:"center"}}>
@@ -31,14 +31,14 @@ const App = () => {
           placeholder="Enter URL for QR code"
         />
       </div>
-      <div style={{ marginTop: "15px" }}>
-        {inputValue && <QRCode value={inputValue} ref={qrCodeRef} />}
+      <div  id="qrcode-container" style={{ marginTop: "15px", marginRight:"50px" }}>
+        {inputValue && <QRCode   value={inputValue} />}
       </div>
-      {/* {inputValue && (
+      {inputValue && (
         <button style={{ marginTop: "15px" }} onClick={handleDownload}>
           Download QR Code
         </button>
-      )} */}
+      )}
       <p>QR generator From <span style={{color:"teal"}}>Venturesathi Business</span></p>
     </div>
   );
