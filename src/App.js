@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import ReactDOM from "react-dom";
 import QRCode from "react-qr-code";
 
 const App = () => {
