@@ -21,10 +21,10 @@ const App = () => {
   // };
 
   return (
-    <div style={{ padding: "30px", margin: "0px 0px 0px 0px" }}>
+    <div style={{ padding: "30px", display:"grid", justifyContent:"center"}}>
       <div>
         <input
-          style={{ width: "150px", height: "30px" }}
+          style={{ width: "300px", height: "30px"  }}
           type="text"
           value={inputValue}
           onChange={handleChange}
@@ -39,7 +39,7 @@ const App = () => {
           Download QR Code
         </button>
       )} */}
-      <p>All the best QR generators Greeting From <span style={{color:"teal"}}>Venturesathi Business LLP</span></p>
+      <p>QR generator From <span style={{color:"teal"}}>Venturesathi Business</span></p>
     </div>
   );
 };
