@@ -9,16 +9,16 @@ const App = () => {
     setInputValue(event.target.value);
   };
 
-  const handleDownload = () => {
-    const canvas = qrCodeRef.current.getElementsByTagName("canvas")[0];
-    const url = canvas.toDataURL("image/png");
-    const downloadLink = document.createElement("a");
-    downloadLink.href = url;
-    downloadLink.download = "qrcode.png";
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    document.body.removeChild(downloadLink);
-  };
+  // const handleDownload = () => {
+  //   const canvas = qrCodeRef.current.getElementsByTagName("canvas")[0];
+  //   const url = canvas.toDataURL("image/png");
+  //   const downloadLink = document.createElement("a");
+  //   downloadLink.href = url;
+  //   downloadLink.download = "qrcode.png";
+  //   document.body.appendChild(downloadLink);
+  //   downloadLink.click();
+  //   document.body.removeChild(downloadLink);
+  // };
 
   return (
     <div style={{ padding: "30px", margin: "0px 0px 0px 0px" }}>
