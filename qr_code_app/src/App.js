@@ -40,7 +40,7 @@ const App = () => {
           Download QR Code
         </button>
       )} */}
-      <p>All the best QR generators </p>
+      <p>All the best QR generators Greeting From <span style={{color:"teal"}}>Venturesathi Business LLP</span></p>
     </div>
   );
 };
